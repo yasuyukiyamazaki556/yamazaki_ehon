@@ -1,0 +1,1676 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>やまざき やすゆき | 絵本作家</title>
+
+<!-- SEO -->
+<meta name="description" content="絵本作家・やまざき やすゆきの公式サイト。既刊絵本の紹介、グッズ情報、プロフィールなどを掲載しています。">
+<meta name="keywords" content="やまざき やすゆき, 絵本作家, 絵本, 児童書, デザイナー, イラスト, 育児">
+<meta name="author" content="やまざき やすゆき">
+<link rel="canonical" href="https://yamazaki_ehon.me/">
+
+<!-- OGP -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="やまざき やすゆき | 絵本作家">
+<meta property="og:title" content="やまざき やすゆき | 絵本作家">
+<meta property="og:description" content="絵本作家・やまざき やすゆきの公式サイト。既刊絵本の紹介、グッズ情報、プロフィールなどを掲載しています。">
+<meta property="og:url" content="https://yamazaki_ehon.me/">
+<meta property="og:image" content="https://yamazaki_ehon.me/img/ogp.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+
+<!-- X (Twitter) Card -->
+<meta name="twitter:card" content="summary_large_image">
+<!-- <meta name="twitter:site" content="@ShamojiCase"> -->
+<meta name="twitter:title" content="やまざき やすゆき | 絵本作家">
+<meta name="twitter:description" content="絵本作家・やまざき やすゆきの公式サイト。既刊絵本の紹介・試し読み・購入リンク、グッズ情報、プロフィールなどを掲載しています。">
+<meta name="twitter:image" content="https://yamazaki_ehon.me/img/ogp.jpg">
+
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent: #8470ca;
+    --accent-dark: #5a48a0;
+    --accent-light: #f0edfa;
+    --yellow: #FFD84D;
+    --yellow-dark: #C9A000;
+    --yellow-light: #FFFBE8;
+    --mint: #3ECFA0;
+    --mint-dark: #219B73;
+    --mint-light: #E8FAF4;
+    --gray-100: #F7F7F7;
+    --gray-200: #EEEEEE;
+    --gray-400: #BBBBBB;
+    --gray-600: #888888;
+    --gray-800: #444444;
+    --text: #1A1A1A;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    background: var(--white);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-200);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+
+  .nav-logo {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--gray-800);
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ハンバーガー */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--gray-800);
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* SP ドロワー */
+  .nav-drawer {
+    display: none;
+    position: fixed;
+    top: 60px; left: 0; right: 0;
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-200);
+    z-index: 190;
+    padding: 1rem 2rem 1.5rem;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .nav-drawer.open { display: flex; }
+
+  .nav-drawer a {
+    text-decoration: none;
+    color: var(--gray-800);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--gray-200);
+    transition: color 0.2s;
+  }
+
+  .nav-drawer a:last-child { border-bottom: none; }
+  .nav-drawer a:hover { color: var(--accent); }
+
+  /* ===== HERO ===== */
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    max-height: 820px;  /* 大画面での高さ上限 */
+    min-height: 500px;
+    overflow: hidden;
+    margin-top: 60px;
+  }
+
+  /* 背景は全幅fill、コンテンツだけ最大幅で中央に収める */
+  .hero-inner {
+    position: absolute;
+    inset: 0;
+    max-width: 1440px;
+    margin: 0 auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: var(--gray-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    flex-direction: column;
+    gap: 12px;
+    overflow: hidden;
+  }
+
+  .hero-bg svg { opacity: 0.25; }
+
+  
+  .hero-bg { background: url('./img/hero.jpg') center/cover no-repeat; }
+  
+
+  .hero-overlay {
+    display: none;
+  }
+
+  .hero-content {
+    position: absolute;
+    left: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 480px;
+    z-index: 2;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.6);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 999px;
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.06em;
+    backdrop-filter: blur(4px);
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.3;
+    color: white;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.25);
+  }
+
+  .hero-title em {
+    font-style: normal;
+    color: var(--yellow);
+  }
+
+  .hero-sub {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.88);
+    line-height: 1.9;
+    margin-bottom: 2rem;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.3);
+  }
+
+  /* ヒーロー下部の有機的な波形ボーダー */
+  .hero-wave {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+    line-height: 0;
+  }
+
+  .hero-wave svg {
+    display: block;
+    width: 100%;
+    height: 80px;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 13px 26px;
+    border-radius: 999px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 3px 0 var(--accent-dark);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 0 var(--accent-dark);
+  }
+
+  /* ヒーロー内専用：白ボタン */
+  .btn-primary-hero {
+    background: white;
+    color: var(--accent);
+    border: none;
+    padding: 13px 26px;
+    border-radius: 999px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 3px 0 rgba(0,0,0,0.15);
+  }
+
+  .btn-primary-hero:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 0 rgba(0,0,0,0.2);
+  }
+
+  .btn-outline {
+    background: rgba(255,255,255,0.15);
+    color: white;
+    border: 2px solid rgba(255,255,255,0.7);
+    padding: 11px 24px;
+    border-radius: 999px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, border-color 0.2s;
+    backdrop-filter: blur(4px);
+  }
+
+  .btn-outline:hover { background: rgba(255,255,255,0.28); border-color: white; }
+
+  /* ===== SECTION ===== */
+  section { padding: 5rem 4rem; }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-headline-img {
+    max-width: 320px;
+    width: 80%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .section-en {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--gray-600);
+    text-transform: uppercase;
+    margin-top: 0.6rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  /* ===== BOOKS ===== */
+  #books {
+    background: var(--white);
+    padding-bottom: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .books-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 960px) {
+    .books-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .book-card {
+    background: var(--white);
+    border-radius: 16px;
+    cursor: pointer;
+    transition: transform 0.22s, box-shadow 0.22s;
+    position: relative;
+    padding-top: 14px; /* バッジ有無に関わらず常に同じ余白を確保 */
+  }
+
+  .book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.10);
+  }
+
+  .book-thumb {
+    width: 100%;
+    aspect-ratio: 3/4;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--gray-200);
+  }
+
+  .book-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .book-thumb-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--gray-600);
+    font-size: 0.75rem;
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+    height: 100%;
+    background: var(--gray-100);
+    justify-content: center;
+  }
+
+  .book-info {
+    padding: 0.75rem 0.25rem 0.5rem;
+  }
+
+  .book-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+    line-height: 1.45;
+  }
+
+  .book-year {
+    font-size: 0.75rem;
+    color: var(--gray-600);
+  }
+
+  /* バッジ：カードの外（上）に出す */
+  .book-badge {
+    position: absolute;
+    top: -10px;
+    right: 8px;
+    background: var(--accent);
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+    z-index: 5;
+    box-shadow: 0 2px 6px rgba(132,112,202,0.4);
+  }
+
+  /* ===== MODAL ===== */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s, visibility 0.25s;
+  }
+
+  .modal-overlay.open { opacity: 1; visibility: visible; }
+
+  .modal {
+    background: var(--white);
+    border-radius: 20px;
+    max-width: 640px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    transform: translateY(16px) scale(0.97);
+    transition: transform 0.25s;
+  }
+
+  .modal-overlay.open .modal { transform: none; }
+
+  .modal-close {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    background: var(--gray-100);
+    color: var(--gray-800);
+    border: none;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: background 0.2s;
+  }
+
+  .modal-close:hover { background: var(--gray-200); }
+
+  .modal-header {
+    padding: 1.8rem 2rem 1.2rem;
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  .modal-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.3rem; }
+  .modal-meta { font-size: 0.82rem; color: var(--gray-600); }
+  .modal-body { padding: 1.5rem 2rem 2rem; }
+
+  .modal-desc {
+    font-size: 0.92rem;
+    color: var(--gray-600);
+    line-height: 1.85;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Slider */
+  .slider-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.04em;
+  }
+
+  .slider-track {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: var(--gray-100);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--gray-200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .slider-track .slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    transform: translateX(40px);
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .slider-track .slide.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .slider-track .slide.exit-left {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+
+  .slider-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 0.6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .slider-btn {
+    background: var(--gray-100);
+    border: 1px solid var(--gray-200);
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    font-size: 1rem;
+    cursor: pointer;
+    color: var(--gray-800);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    line-height: 1;
+  }
+
+  .slider-btn:hover { background: var(--gray-200); }
+
+  .slider-dots { display: flex; gap: 5px; align-items: center; }
+
+  .dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--gray-300, #ccc);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .dot.active { background: var(--accent); transform: scale(1.3); }
+
+  /* Buy */
+  .buy-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.04em;
+  }
+
+  .buy-categories { display: flex; flex-direction: column; gap: 1rem; }
+
+  .buy-category-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--gray-600);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    border-left: 3px solid var(--accent);
+    padding-left: 7px;
+  }
+
+  .buy-buttons { display: flex; gap: 0.7rem; flex-wrap: wrap; }
+
+  .buy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent);
+    color: white;
+    padding: 9px 18px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 0 var(--accent-dark);
+  }
+
+  .buy-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 0 var(--accent-dark); }
+
+  .buy-btn.amazon { background: #FF9900; box-shadow: 0 2px 0 #CC7A00; }
+  .buy-btn.amazon:hover { box-shadow: 0 4px 0 #CC7A00; }
+
+  .buy-btn-add {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--gray-600);
+    padding: 9px 14px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    border: 1.5px dashed var(--gray-400);
+  }
+
+  .buy-btn-unavailable {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.8rem;
+    color: var(--gray-600);
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    background: var(--gray-100);
+    padding: 8px 14px;
+    border-radius: 999px;
+  }
+
+  /* ===== GOODS ===== */
+  #goods { background: var(--mint-light); padding-top: 3rem; }
+
+  /* books/goods境界をまたぐキャラクターエリア */
+  .goods-character-wrap {
+    position: relative;
+    background: linear-gradient(to bottom, var(--white) 50%, var(--mint-light) 50%);
+    padding: 0 4rem;
+  }
+
+  .goods-character-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    height: 260px;
+    pointer-events: none;
+  }
+
+  .goods-character-img {
+    position: absolute;
+    width: 280px;
+    height: auto;
+    right: 0;
+    bottom: 0;
+  }
+
+  /* SP */
+  @media (max-width: 720px) {
+    .goods-character-wrap { padding: 0 1.5rem; }
+    .goods-character-inner { height: 140px; }
+    .goods-character-img {
+      width: 150px;
+      right: -10px;
+    }
+  }
+
+  /* goods/profile境界キャラクター（左配置） */
+  .profile-character-wrap {
+    position: relative;
+    background: linear-gradient(to bottom, var(--mint-light) 50%, var(--white) 50%);
+    padding: 0 4rem;
+  }
+
+  .profile-character-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    height: 260px;
+    pointer-events: none;
+  }
+
+  .profile-boundary-img {
+    position: absolute;
+    width: 280px;
+    height: auto;
+    left: 0;
+    bottom: 0;
+  }
+
+  /* profile/contact境界キャラクター（右配置） */
+  .contact-character-wrap {
+    position: relative;
+    background: linear-gradient(to bottom, var(--white) 50%, var(--yellow-light) 50%);
+    padding: 0 4rem;
+  }
+
+  .contact-character-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    height: 260px;
+    pointer-events: none;
+  }
+
+  .contact-boundary-img {
+    position: absolute;
+    width: 280px;
+    height: auto;
+    right: 0;
+    bottom: 0;
+  }
+
+  @media (max-width: 720px) {
+    .profile-character-wrap { padding: 0 1.5rem; }
+    .profile-character-inner { height: 160px; }
+    .profile-boundary-img { width: 160px; left: -10px; }
+
+    .contact-character-wrap { padding: 0 1.5rem; }
+    .contact-character-inner { height: 160px; }
+    .contact-boundary-img { width: 160px; right: -10px; }
+  }
+
+  .goods-inner {
+    max-width: 560px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .goods-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    border: 2px solid var(--mint);
+    position: relative;
+  }
+
+  .goods-ribbon {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--mint);
+    color: var(--white);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 4px 18px;
+    border-radius: 999px;
+    white-space: nowrap;
+    letter-spacing: 0.05em;
+  }
+
+  .goods-emoji { font-size: 2.8rem; display: block; margin-bottom: 0.8rem; }
+
+  .goods-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; }
+
+  .goods-desc {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    line-height: 1.85;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn-mint {
+    background: var(--mint);
+    color: var(--white);
+    border: none;
+    padding: 13px 28px;
+    border-radius: 999px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 3px 0 var(--mint-dark);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .btn-mint:hover { transform: translateY(-2px); box-shadow: 0 5px 0 var(--mint-dark); }
+
+  /* グッズ準備中：非活性スタイル */
+  .btn-mint-disabled {
+    background: var(--gray-200);
+    color: var(--gray-400);
+    border: none;
+    padding: 13px 28px;
+    border-radius: 999px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    cursor: not-allowed;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 3px 0 #CCCCCC;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* ===== PROFILE ===== */
+  #profile { background: var(--white); padding-top: 3rem; }
+
+  .profile-inner {
+    display: flex;
+    gap: 3.5rem;
+    align-items: flex-start;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .profile-character {
+    flex-shrink: 0;
+    width: 260px;
+    position: relative;
+  }
+
+  .profile-character-img {
+    width: 260px;
+    height: 310px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: -36px;
+  }
+
+  .profile-bubble {
+    background: var(--yellow-light);
+    border: 2px solid var(--yellow);
+    border-radius: 40px;
+    padding: 0.7rem 1.2rem;
+    font-size: 0.83rem;
+    font-weight: 700;
+    color: var(--gray-800);
+    text-align: center;
+    margin-top: 3.5rem;
+    position: relative;
+  }
+
+  .profile-bubble::before {
+    content: '';
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 8px 16px 8px;
+    border-style: solid;
+    border-color: transparent transparent var(--yellow) transparent;
+  }
+
+  .profile-bubble::after {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 6px 12px 6px;
+    border-style: solid;
+    border-color: transparent transparent var(--yellow-light) transparent;
+  }
+
+  .profile-content { flex: 1; padding-top: 0.25rem; }
+
+  .profile-name { font-size: 1.7rem; font-weight: 700; margin-bottom: 0.2rem; }
+  .profile-name-en { font-size: 0.85rem; color: var(--gray-600); margin-bottom: 1.2rem; letter-spacing: 0.05em; }
+
+  .profile-text {
+    font-size: 0.93rem;
+    line-height: 2;
+    color: var(--gray-600);
+    margin-bottom: 0.8rem;
+  }
+
+  .profile-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1.2rem; }
+
+  .profile-sns {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.4rem;
+    flex-wrap: wrap;
+  }
+
+  .sns-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--gray-100);
+    border: 1px solid var(--gray-200);
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s, border-color 0.2s;
+  }
+
+  .sns-link:hover {
+    transform: translateY(-3px);
+  }
+
+  .sns-link img {
+    width: 20px;
+    height: 20px;
+    transition: filter 0.2s;
+  }
+
+  /* ホバー時：ブランドカラー背景 + アイコンを白に */
+  .sns-link.instagram:hover { background: #E1306C; border-color: #E1306C; }
+  .sns-link.threads:hover   { background: #000000; border-color: #000000; }
+  .sns-link.facebook:hover  { background: #1877F2; border-color: #1877F2; }
+  .sns-link.x:hover         { background: #000000; border-color: #000000; }
+
+  .sns-link:hover img { filter: brightness(0) invert(1); }
+
+  .tag {
+    background: var(--accent-light);
+    color: var(--accent-dark);
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 999px;
+  }
+
+  /* ===== CONTACT ===== */
+  #contact { background: var(--yellow-light); text-align: center; padding-top: 3rem; }
+
+  .contact-inner { max-width: 480px; margin: 0 auto; }
+
+  .contact-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    border: 1px solid var(--gray-200);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  }
+
+  .contact-icon { font-size: 2.5rem; display: block; margin-bottom: 0.8rem; }
+
+  /* PC: 固定サイズ中央揃え */
+  .contact-image {
+    display: block;
+    width: 300px;
+    height: auto;
+    margin: 0 auto 1.2rem;
+  }
+  .contact-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; }
+
+  .contact-desc {
+    font-size: 0.88rem;
+    color: var(--gray-600);
+    line-height: 1.85;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: url('img/footer.jpg') center/cover no-repeat;
+    color: rgba(255,255,255,0.85);
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.8rem;
+    position: relative;
+  }
+
+  .footer-wave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    line-height: 0;
+  }
+
+  .footer-wave svg {
+    display: block;
+    width: 100%;
+    height: 60px;
+  }
+
+  footer a { color: var(--yellow); text-decoration: none; }
+
+  /* ===== ANIMATIONS ===== */
+
+  /* #1 heroキャラクター：左下からフェードイン */
+  .hero-mv-img {
+    animation: heroCharIn 1.1s cubic-bezier(0.22, 0.61, 0.36, 1) 0.3s both;
+  }
+
+  @keyframes heroCharIn {
+    from {
+      opacity: 0;
+      transform: translateY(-42%) translate(-30px, 30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(-42%) translate(0, 0);
+    }
+  }
+
+  /* SP版のhero-mv-imgはtransformが異なるので上書き */
+  @media (max-width: 720px) {
+    .hero-mv-img {
+      animation: heroCharInSP 1.1s cubic-bezier(0.22, 0.61, 0.36, 1) 0.3s both;
+    }
+    @keyframes heroCharInSP {
+      from {
+        opacity: 0;
+        transform: translate(-20px, 20px);
+      }
+      to {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+    }
+  }
+
+  /* #2 境界キャラクター：下からフェードイン（スクロール出現） */
+  .goods-character-img,
+  .profile-boundary-img,
+  .contact-boundary-img {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.22, 0.61, 0.36, 1),
+                transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  .goods-character-img.is-visible,
+  .profile-boundary-img.is-visible,
+  .contact-boundary-img.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* #3 各コンテンツ：スクロールフェードイン */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* transition-delayでずらしてグループ感を出す */
+  .fade-in:nth-child(2) { transition-delay: 0.08s; }
+  .fade-in:nth-child(3) { transition-delay: 0.16s; }
+  .fade-in:nth-child(4) { transition-delay: 0.24s; }
+
+  /* prefers-reduced-motion 対応 */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-mv-img { animation: none; }
+    .goods-character-img,
+    .profile-boundary-img,
+    .contact-boundary-img,
+    .fade-in {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+
+  /* ===== /ANIMATIONS ===== */
+  .hero-mv-img {
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+    right: 6%;
+    top: 50%;
+    transform: translateY(-42%); /* 下にはみ出す分だけ少し下げる */
+    width: 420px;
+  }
+
+  @media (max-width: 960px) {
+    .hero-mv-img {
+      width: clamp(200px, 44vw, 420px);
+    }
+  }
+
+  @media (max-width: 720px) {
+    .hero {
+      max-height: 600px;
+      overflow: visible;
+      z-index: 2;
+    }
+
+    /* SP: hero-innerをflexで縦並びに */
+    .hero-inner {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding-top: 15%;
+      left: 0;
+      transform: none;
+    }
+
+    .hero-content {
+      position: relative;
+      left: auto;
+      right: auto;
+      top: auto;
+      transform: none;
+      max-width: 100%;
+      padding: 0 5%;
+      z-index: 2;
+    }
+
+    .hero-mv-img {
+      position: relative;
+      right: auto;
+      bottom: auto;
+      top: auto;
+      transform: none;
+      width: 74vw;
+      max-width: 280px;
+      margin-top: 10%;
+      align-self: flex-end;
+      margin-right: 3%;
+      z-index: 4; /* hero-wave(z-index:3)より手前 */
+    }
+
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+
+    section { padding: 3.5rem 1.5rem; }
+
+    .books-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+
+    /* SP: 横幅いっぱいに */
+    .contact-image {
+      width: 100%;
+      margin-bottom: 1.2rem;
+    }
+
+    .profile-inner { flex-direction: column; gap: 1.5rem; }
+
+    .profile-character {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .profile-character-img { width: 200px; height: 240px; margin-bottom: -32px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo"><img src="img/heder-name.png" alt="やまざき やすゆき" height="36" style="display:block;"></a>
+
+  <ul class="nav-links">
+    <li><a href="#books">絵本</a></li>
+    <li><a href="#goods">グッズ</a></li>
+    <li><a href="#profile">プロフィール</a></li>
+    <li><a href="#contact">お問い合わせ</a></li>
+  </ul>
+
+  <button class="nav-hamburger" id="hamburger" aria-label="メニューを開く">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- SP ドロワー -->
+<div class="nav-drawer" id="navDrawer">
+  <a href="#books" onclick="closeDrawer()"><img src="img/icon-books.svg" alt="" width="18" height="18" style="vertical-align:-3px; margin-right:6px;"> 絵本</a>
+  <a href="#goods" onclick="closeDrawer()"><img src="img/icon-goods.svg" alt="" width="18" height="18" style="vertical-align:-3px; margin-right:6px;"> グッズ</a>
+  <a href="#profile" onclick="closeDrawer()"><img src="img/icon-profile.svg" alt="" width="18" height="18" style="vertical-align:-3px; margin-right:6px;"> プロフィール</a>
+  <a href="#contact" onclick="closeDrawer()"><img src="img/icon-contact.svg" alt="" width="18" height="18" style="vertical-align:-3px; margin-right:6px;"> お問い合わせ</a>
+</div>
+
+<!-- HERO: 横幅 Fill の画像ヘッダー -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+
+  <!-- コンテンツをmax-width内に収めるコンテナ -->
+  <div class="hero-inner">
+    <div class="hero-content">
+      <!--サブ見出し <span class="hero-badge">Yamazaki Yasuyuki </span> -->
+      <h1 class="hero-title">
+        <em>子どもとの時間</em>から<br>
+        生まれた絵本たち
+      </h1>
+      <p class="hero-sub">
+        子どもたちの「もう一回！」が聞きたくて、<br>
+        今日も夜な夜な筆を走らせています。
+      </p>
+      <div class="hero-btns">
+        <a href="#books" class="btn-primary-hero"><img src="img/icon-books.svg" alt="" width="16" height="16" style="vertical-align:-2px; margin-right:5px;"> 絵本をみる</a>
+        <a href="#profile" class="btn-outline">作者について</a>
+      </div>
+    </div>
+
+    <img src="img/mv-img.png" alt="" class="hero-mv-img">
+  </div>
+
+  <!-- ⑦ 有機的な波形ボーダー -->
+  <div class="hero-wave">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,40 C180,80 360,0 540,40 C720,80 900,10 1080,45 C1260,78 1380,20 1440,40 L1440,80 L0,80 Z" fill="#ffffff"/>
+    </svg>
+  </div>
+</div>
+
+<!-- BOOKS -->
+<section id="books">
+  <div class="section-header fade-in">
+    <img src="img/books-headline-8.png" alt="既刊絵本一覧" class="section-headline-img">
+    <div class="section-en">BOOKS</div>
+  </div>
+  <div class="books-grid fade-in" id="booksGrid"></div>
+</section>
+
+<!-- books/goods境界をまたぐキャラクター -->
+<div class="goods-character-wrap">
+  <div class="goods-character-inner">
+    <img src="img/goods-img-8.png" alt="" class="goods-character-img">
+  </div>
+</div>
+
+<!-- GOODS -->
+<section id="goods">
+  <div class="section-header fade-in">
+    <img src="img/goods-headline-8.png" alt="グッズ" class="section-headline-img">
+    <div class="section-en">GOODS</div>
+  </div>
+  <div class="goods-inner fade-in">
+    <div class="goods-card">
+      <span class="goods-ribbon">🚧 ただいまグッズ準備中 🚧</span>
+      <img src="img/goods-image-8.png" alt="グッズ" width="140" height="140" style="display:block; margin: 0 auto 0.8rem;" class="goods-emoji">
+      <h3 class="goods-title">オリジナルグッズ</h3>
+      <p class="goods-desc">
+        絵本のキャラクターたちを使ったグッズを制作予定！<br>
+        オープンをお待ちください🙇‍♂️
+      </p>
+      <!-- <a href="https://suzuri.jp/" target="_blank" class="btn-mint">SUZURIにて販売中）</a> -->
+      <a class="btn-mint-disabled">🚧 ただいま準備中</a>
+    </div>
+  </div>
+</section>
+
+<!-- goods/profile境界キャラクター（左配置） -->
+<div class="profile-character-wrap">
+  <div class="profile-character-inner">
+    <img src="img/profile-img-8.png" alt="" class="profile-boundary-img">
+  </div>
+</div>
+
+<!-- PROFILE -->
+<section id="profile">
+  <div class="section-header fade-in">
+    <img src="img/profile-headline-8.png" alt="プロフィール" class="section-headline-img">
+    <div class="section-en">PROFILE</div>
+  </div>
+  <div class="profile-inner fade-in">
+    <div class="profile-character">
+      <div class="profile-character-img">
+        <img src="img/profile-80.jpg" alt="やまざき やすゆき" style="width:100%;height:100%;object-fit:cover;border-radius:18px;">
+      </div>
+      <div class="profile-bubble">ユーモアとやさしさを届けたい！</div>
+    </div>
+    <div class="profile-content">
+      <h3 class="profile-name">やまざき やすゆき</h3>
+      <p class="profile-name-en">Yamazaki Yasuyuki</p>
+      <p class="profile-text">
+        デザイナー。1985年、新潟県生まれ。長岡造形大学大学院修士課程を修了後、
+        ヨガスタジオ、広告代理店、制作会社等で勤務し、2019年に東京都から富山県へ移住。
+        立山連峰を臨む自然のなかで、娘の子育てをしながら、絵本を制作。<br>
+      </p>
+      <p class="profile-text">
+        過去の実績として、自作の人形劇を用いた書籍CMの制作や、自主制作映像で賞を受賞。
+      </p>
+      <div class="profile-tags">
+        <span class="tag"># デザイナー</span>
+        <span class="tag"># 絵本作家</span>
+        <span class="tag"># 育児</span>
+        <span class="tag"># こどもと絵本</span>
+      </div>
+      <div class="profile-sns">
+        <a href="https://www.instagram.com/yamazaki_ehon/" target="_blank" class="sns-link instagram" aria-label="Instagram">
+          <img src="img/icon-instagram.svg" alt="Instagram">
+        </a>
+        <a href="https://www.threads.com/@yamazaki_ehon" target="_blank" class="sns-link threads" aria-label="Threads">
+          <img src="img/icon-threads.svg" alt="Threads">
+        </a>
+        <a href="https://www.facebook.com/agatiana" target="_blank" class="sns-link facebook" aria-label="Facebook">
+          <img src="img/icon-facebook.svg" alt="Facebook">
+        </a>
+        <!--
+        <a href="https://x.com/ShamojiCase" target="_blank" class="sns-link x" aria-label="X">
+          <img src="img/icon-x.svg" alt="X">
+          -->
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- profile/contact境界キャラクター（右配置） -->
+<div class="contact-character-wrap">
+  <div class="contact-character-inner">
+    <img src="img/contact-img-8.png" alt="" class="contact-boundary-img">
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="section-header fade-in">
+      <img src="img/contact-headline-8.png" alt="お問い合わせ" class="section-headline-img">
+      <div class="section-en">CONTACT</div>
+    </div>
+    <div class="contact-card fade-in">
+      <img src="img/contact-image-8.png" alt="お問い合わせ" class="contact-image">
+      <h3 class="contact-title">お気軽にどうぞ！</h3>
+      <p class="contact-desc">
+        <!--取材・出版・コラボのご相談、読み聞かせイベントのご依頼など、-->
+        出版物に対してのご質問、各種ご依頼など、お気軽にお問い合わせください。
+      </p>
+      <a href="https://forms.gle/z5JerYg8PowPfcbz9" target="_blank" class="btn-primary" style="font-size:0.95rem; padding: 14px 32px;">
+        <img src="img/icon-contact.svg" alt="" width="16" height="16" style="vertical-align:-2px; margin-right:5px; filter:brightness(10);"> お問い合わせフォームへ
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- contact/footer境界の波形 -->
+<footer>
+  <div class="footer-wave">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,30 C180,0 360,60 540,30 C720,0 900,50 1080,25 C1260,2 1380,45 1440,30 L1440,0 L0,0 Z" fill="var(--yellow-light)"/>
+    </svg>
+  </div>
+  <p style="padding-top:2.5rem;">© 2026 やまざき やすゆき All Rights Reserved.</p>
+  <p style="margin-top:0.4rem;"><a href="privacy.html">プライバシーポリシー</a></p>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()" aria-label="閉じる">✕</button>
+    <div class="modal-header">
+      <h3 class="modal-title" id="modalTitle"></h3>
+      <p class="modal-meta" id="modalMeta"></p>
+    </div>
+    <div class="modal-body">
+      <p class="modal-desc" id="modalDesc"></p>
+
+      <div style="margin-bottom:1.2rem;">
+        <div class="slider-label"><img src="img/icon-books.svg" alt="" width="14" height="14" style="vertical-align:-2px; margin-right:4px;"> 書籍イメージ</div>
+        <div class="slider-track" id="sliderTrack"></div>
+        <div class="slider-nav">
+          <button class="slider-btn" onclick="prevSlide()">‹</button>
+          <div class="slider-dots" id="sliderDots"></div>
+          <button class="slider-btn" onclick="nextSlide()">›</button>
+        </div>
+      </div>
+
+      <div>
+        <div class="buy-label"><img src="img/icon-goods.svg" alt="" width="14" height="14" style="vertical-align:-2px; margin-right:4px;"> 購入する</div>
+        <div class="buy-buttons" id="modalBuyButtons"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ===== データ =====
+const books = [
+  {
+    id: 3,
+    title: "【制作中】いちごちゃんがトン",
+    year: "2026年発売予定",
+    badge: "🚧鋭意制作中",
+    thumb: "img/book03-thumb-80.jpg",
+    desc: "いちご✕擬音！みんな大好物のいちごちゃんが、楽しい音の冒険をする繰り返し絵本です。現在制作中。",
+    slides: [
+      "img/book03-01-80.jpg",
+      "img/book03-02-80.jpg",
+      "img/book03-03-80.jpg",
+      "img/book03-04-80.jpg",
+      "img/book03-05-80.jpg",
+      "img/book03-06-80.jpg",
+      "img/book03-07-80.jpg",
+      "img/book03-08-80.jpg",
+    ],
+    buyLinks: {
+      print:   [],
+      digital: []
+    }
+  },  
+  {
+    id: 2,
+    title: "へんしんスライム",
+    year: "2026年",
+    badge: "最新作",
+    thumb: "img/book02-thumb-80.jpg",
+    desc: "３歳娘が飛び跳ねて喜ぶ！スライムがぷにぷにと次々変身していく繰り返し絵本",
+    slides: [
+      "img/book02-01-80.jpg",
+      "img/book02-02-80.jpg",
+      "img/book02-03-80.jpg",
+      "img/book02-04-80.jpg",
+      "img/book02-05-80.jpg",
+      "img/book02-06-80.jpg",
+      "img/book02-07-80.jpg",
+      "img/book02-08-80.jpg",
+      "img/book02-09-80.jpg",
+      "img/book02-10-80.jpg",
+      "img/book02-11-80.jpg",
+      "img/book02-12-80.jpg",
+    ],
+    buyLinks: {
+      print:   [{ label: "Amazon（紙の本）", url: "https://amzn.to/3PKSc8n", type: "amazon" }],
+      digital: [{ label: "Amazon Kindle", url: "https://amzn.to/49vyh3W", type: "amazon" }]
+    }
+  },
+  {
+    id: 1,
+    title: "エスカレーターにのるときは",
+    year: "2025年",
+    badge: null,
+    thumb: "img/book01-thumb-80.jpg",
+    desc: "小さな子供にエスカレーターの安全な乗り方をパッと絵で伝える教育絵本",
+    slides: [
+      "img/book01-01-80.jpg",
+      "img/book01-02-80.jpg",
+      "img/book01-03-80.jpg",
+    ],
+    buyLinks: {
+      print:   [],
+      digital: [{ label: "Amazon Kindle", url: "https://amazon.co.jp/", type: "amazon" }]
+    }
+  },
+
+];
+
+// ===== 書籍グリッド =====
+function renderBooks() {
+  document.getElementById('booksGrid').innerHTML = books.map(book => `
+    <div class="book-card" onclick="openModal(${book.id})">
+      ${book.badge ? `<span class="book-badge">${book.badge}</span>` : ''}
+      <div class="book-thumb">
+        <img src="${book.thumb}" alt="${book.title}" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+      </div>
+      <div class="book-info">
+        <div class="book-title">${book.title}</div>
+        <div class="book-year">${book.year}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ===== ハンバーガー =====
+const hamburger = document.getElementById('hamburger');
+const navDrawer = document.getElementById('navDrawer');
+
+hamburger.addEventListener('click', () => {
+  const isOpen = navDrawer.classList.toggle('open');
+  hamburger.classList.toggle('open', isOpen);
+  hamburger.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
+});
+
+function closeDrawer() {
+  navDrawer.classList.remove('open');
+  hamburger.classList.remove('open');
+}
+
+// ===== Modal =====
+let currentSlide = 0;
+let currentSlides = [];
+
+function openModal(id) {
+  const book = books.find(b => b.id === id);
+  if (!book) return;
+  document.getElementById('modalTitle').textContent = book.title;
+  document.getElementById('modalMeta').textContent = `発行年：${book.year}`;
+  document.getElementById('modalDesc').textContent = book.desc;
+  currentSlides = book.slides;
+  currentSlide = 0;
+  renderSlides();
+  const btns = document.getElementById('modalBuyButtons');
+  const isEmpty = (links) => !links || links.length === 0 || !links[0].url;
+  const printEmpty   = isEmpty(book.buyLinks.print);
+  const digitalEmpty = isEmpty(book.buyLinks.digital);
+
+  const renderCategory = (links, label, unavailableMsg) => {
+    if (isEmpty(links)) {
+      return `
+        <div class="buy-category">
+          <div class="buy-category-label">${label}</div>
+          <div class="buy-buttons">
+            <span class="buy-btn-unavailable">${unavailableMsg}</span>
+          </div>
+        </div>`;
+    }
+    return `
+      <div class="buy-category">
+        <div class="buy-category-label">${label}</div>
+        <div class="buy-buttons">
+          ${links.map(l => `<a href="${l.url}" target="_blank" class="buy-btn ${l.type}">${l.label}</a>`).join('')}
+        </div>
+      </div>`;
+  };
+
+  // 紙の本・電子書籍どちらもない場合はまとめて1メッセージ
+  if (printEmpty && digitalEmpty) {
+    btns.innerHTML = `<div class="buy-categories">
+      <div class="buy-category">
+        <div class="buy-buttons">
+          <span class="buy-btn-unavailable">現在取り扱いはありません</span>
+        </div>
+      </div>
+    </div>`;
+  } else {
+    btns.innerHTML = `<div class="buy-categories">
+      ${renderCategory(book.buyLinks.print,   '<img src="img/icon-paperbooks.svg" alt="" width="14" height="14" style="vertical-align:-2px; margin-right:5px;"> 紙の本', '現在は電子書籍のみ販売中')}
+      ${renderCategory(book.buyLinks.digital, '<img src="img/icon-ebooks.svg" alt="" width="14" height="14" style="vertical-align:-2px; margin-right:5px;"> 電子書籍', '現在は紙の本のみ販売中')}
+    </div>`;
+  }
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('modalOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+function renderSlides() {
+  document.getElementById('sliderTrack').innerHTML = currentSlides.map((src, i) => `
+    <div class="slide ${i === currentSlide ? 'active' : ''}">
+      <img src="${src}" alt="試し読み ${i+1}" style="max-height:100%;max-width:100%;object-fit:contain;">
+    </div>
+  `).join('');
+  document.getElementById('sliderDots').innerHTML = currentSlides.map((_, i) =>
+    `<div class="dot ${i === currentSlide ? 'active' : ''}" onclick="goToSlide(${i})"></div>`
+  ).join('');
+}
+
+function goToSlide(n) {
+  const total = currentSlides.length;
+  const next = (n + total) % total;
+  if (next === currentSlide) return;
+
+  const track = document.getElementById('sliderTrack');
+  const slides = track.querySelectorAll('.slide');
+
+  // 前進か後退かをラップ前の生の引数 n で判断
+  const goingForward = n >= currentSlide
+    ? (n - currentSlide) <= total / 2      // 通常前進、またはループ前進
+    : (currentSlide - n) > total / 2;     // 大きく戻るならループで前進
+
+  const exitTransform  = goingForward ? 'translateX(-40px)' : 'translateX(40px)';
+  const enterTransform = goingForward ? 'translateX(40px)'  : 'translateX(-40px)';
+
+  const currentEl = slides[currentSlide];
+  const nextEl    = slides[next];
+
+  if (currentEl) {
+    currentEl.classList.remove('active');
+    currentEl.style.transform = exitTransform;
+    currentEl.style.opacity = '0';
+  }
+
+  if (nextEl) {
+    nextEl.style.transition = 'none';
+    nextEl.style.transform = enterTransform;
+    nextEl.style.opacity = '0';
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        nextEl.style.transition = '';
+        nextEl.style.transform = 'translateX(0)';
+        nextEl.style.opacity = '1';
+        nextEl.classList.add('active');
+      });
+    });
+  }
+
+  currentSlide = next;
+
+  document.getElementById('sliderDots').innerHTML = currentSlides.map((_, i) =>
+    `<div class="dot ${i === currentSlide ? 'active' : ''}" onclick="goToSlide(${i})"></div>`
+  ).join('');
+}
+
+function prevSlide() { goToSlide(currentSlide - 1); }
+function nextSlide() { goToSlide(currentSlide + 1); }
+
+renderBooks();
+
+// ===== SCROLL ANIMATIONS =====
+const observerOptions = {
+  threshold: 0.15,
+  rootMargin: '0px 0px -40px 0px'
+};
+
+// #3 各コンテンツのfade-in
+const fadeObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      fadeObserver.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+
+// #2 境界キャラクター（少し早めに出現）
+const charObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      charObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2, rootMargin: '0px 0px -20px 0px' });
+
+document.querySelectorAll('.goods-character-img, .profile-boundary-img, .contact-boundary-img')
+  .forEach(el => charObserver.observe(el));
+</script>
+</body>
+</html>
