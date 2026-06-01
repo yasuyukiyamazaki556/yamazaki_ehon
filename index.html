@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>やまざき やすゆき | 絵本作家</title>
+<title>やまざき やすゆき | 暮らしから絵本を作る</title>
 
 <!-- SEO -->
-<meta name="description" content="絵本作家・やまざき やすゆきの公式サイト。既刊絵本の紹介、グッズ情報、プロフィールなどを掲載しています。">
+<meta name="description" content="暮らしから絵本を作る やまざき やすゆきのWebサイト。既刊絵本の紹介、グッズ情報、プロフィールなどを掲載しています。">
 <meta name="keywords" content="やまざき やすゆき, 絵本作家, 絵本, 児童書, デザイナー, イラスト, 育児">
 <meta name="author" content="やまざき やすゆき">
 <link rel="canonical" href="https://yamazaki_ehon.me/">
 
 <!-- OGP -->
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="やまざき やすゆき | 絵本作家">
-<meta property="og:title" content="やまざき やすゆき | 絵本作家">
-<meta property="og:description" content="絵本作家・やまざき やすゆきの公式サイト。既刊絵本の紹介、グッズ情報、プロフィールなどを掲載しています。">
+<meta property="og:site_name" content="やまざき やすゆき | 暮らしから絵本を作る">
+<meta property="og:title" content="やまざき やすゆき | 暮らしから絵本を作る">
+<meta property="og:description" content="暮らしから絵本を作る やまざき やすゆきのWebサイト。既刊絵本の紹介、グッズ情報、プロフィールなどを掲載しています。">
 <meta property="og:url" content="https://yamazaki_ehon.me/">
 <meta property="og:image" content="https://yamazaki_ehon.me/img/ogp.jpg">
 <meta property="og:image:width" content="1200">
@@ -25,8 +25,8 @@
 <!-- X (Twitter) Card -->
 <meta name="twitter:card" content="summary_large_image">
 <!-- <meta name="twitter:site" content="@ShamojiCase"> -->
-<meta name="twitter:title" content="やまざき やすゆき | 絵本作家">
-<meta name="twitter:description" content="絵本作家・やまざき やすゆきの公式サイト。既刊絵本の紹介・試し読み・購入リンク、グッズ情報、プロフィールなどを掲載しています。">
+<meta name="twitter:title" content="やまざき やすゆき | 暮らしから絵本を作る">
+<meta name="twitter:description" content="暮らしから絵本を作る やまざき やすゆきのWebサイト。既刊絵本の紹介・試し読み・購入リンク、グッズ情報、プロフィールなどを掲載しています。">
 <meta name="twitter:image" content="https://yamazaki_ehon.me/img/ogp.jpg">
 
 <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -688,13 +688,13 @@
     max-width: 1100px;
     margin: 0 auto;
     position: relative;
-    height: 260px;
+    height: 268px;
     pointer-events: none;
   }
 
   .goods-character-img {
     position: absolute;
-    width: 280px;
+    width: 300px;
     height: auto;
     right: 0;
     bottom: 0;
@@ -703,9 +703,9 @@
   /* SP */
   @media (max-width: 720px) {
     .goods-character-wrap { padding: 0 1.5rem; }
-    .goods-character-inner { height: 140px; }
+    .goods-character-inner { height: 180px; }
     .goods-character-img {
-      width: 150px;
+      width: 180px;
       right: -10px;
     }
   }
@@ -727,7 +727,7 @@
 
   .profile-boundary-img {
     position: absolute;
-    width: 280px;
+    width: 310px;
     height: auto;
     left: 0;
     bottom: 0;
@@ -750,7 +750,7 @@
 
   .contact-boundary-img {
     position: absolute;
-    width: 280px;
+    width: 320px;
     height: auto;
     right: 0;
     bottom: 0;
@@ -759,11 +759,11 @@
   @media (max-width: 720px) {
     .profile-character-wrap { padding: 0 1.5rem; }
     .profile-character-inner { height: 160px; }
-    .profile-boundary-img { width: 160px; left: -10px; }
+    .profile-boundary-img { width: 200px; left: -10px; }
 
     .contact-character-wrap { padding: 0 1.5rem; }
     .contact-character-inner { height: 160px; }
-    .contact-boundary-img { width: 160px; right: -10px; }
+    .contact-boundary-img { width: 200px; right: -10px; }
   }
 
   .goods-inner {
@@ -1022,57 +1022,83 @@
 
   /* ===== ANIMATIONS ===== */
 
-  /* #1 heroキャラクター：左下からフェードイン */
+  /* 依頼1：hero-content フェードインのみ */
+  .hero-content {
+    animation: heroContentIn 1.0s ease 0.1s both;
+  }
+
+  @keyframes heroContentIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  /* hero キャラクター：左下からフェードイン（PC） */
   .hero-mv-img {
     animation: heroCharIn 1.1s cubic-bezier(0.22, 0.61, 0.36, 1) 0.3s both;
   }
 
   @keyframes heroCharIn {
-    from {
-      opacity: 0;
-      transform: translateY(-42%) translate(-30px, 30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(-42%) translate(0, 0);
-    }
+    from { opacity: 0; transform: translateY(-42%) translate(-30px, 30px); }
+    to   { opacity: 1; transform: translateY(-42%) translate(0, 0); }
   }
 
-  /* SP版のhero-mv-imgはtransformが異なるので上書き */
+  /* SP版 */
   @media (max-width: 720px) {
     .hero-mv-img {
       animation: heroCharInSP 1.1s cubic-bezier(0.22, 0.61, 0.36, 1) 0.3s both;
     }
     @keyframes heroCharInSP {
-      from {
-        opacity: 0;
-        transform: translate(-20px, 20px);
-      }
-      to {
-        opacity: 1;
-        transform: translate(0, 0);
-      }
+      from { opacity: 0; transform: translate(-20px, 20px); }
+      to   { opacity: 1; transform: translate(0, 0); }
     }
   }
 
-  /* #2 境界キャラクター：下からフェードイン（スクロール出現） */
-  .goods-character-img,
-  .profile-boundary-img,
-  .contact-boundary-img {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.8s cubic-bezier(0.22, 0.61, 0.36, 1),
-                transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+  /* 依頼2：ふわふわ浮遊 */
+  @keyframes float {
+    0%   { transform: translate(0,     0); }
+    50%  { transform: translate(0, -10px); }
+    100% { transform: translate(0,     0); }
   }
 
+  /* 右配置：右からスライドイン（goods・contact） */
+  .goods-character-img,
+  .contact-boundary-img {
+    opacity: 0;
+    transform: translateX(80px);
+    transition: opacity 0.75s cubic-bezier(0.22, 0.61, 0.36, 1),
+                transform 0.75s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  /* 左配置：左からスライドイン（profile） */
+  .profile-boundary-img {
+    opacity: 0;
+    transform: translateX(-80px);
+    transition: opacity 0.75s cubic-bezier(0.22, 0.61, 0.36, 1),
+                transform 0.75s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  /* 出現完了 */
   .goods-character-img.is-visible,
   .profile-boundary-img.is-visible,
   .contact-boundary-img.is-visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 
-  /* #3 各コンテンツ：スクロールフェードイン */
+  /* 依頼2：出現後にふわふわ（transitionをoffにしてanimationへ切り替え） */
+  .goods-character-img.is-floating,
+  .profile-boundary-img.is-floating,
+  .contact-boundary-img.is-floating {
+    animation: float 3.5s ease-in-out infinite;
+    transition: none; /* transitionと競合しないよう無効化 */
+  }
+
+  /* 3つで位相をずらして同時にならないように */
+  .goods-character-img.is-floating   { animation-delay:  0s;    }
+  .profile-boundary-img.is-floating  { animation-delay: -1.2s;  }
+  .contact-boundary-img.is-floating  { animation-delay: -2.4s;  }
+
+  /* コンテンツ：スクロールフェードイン */
   .fade-in {
     opacity: 0;
     transform: translateY(24px);
@@ -1084,14 +1110,14 @@
     transform: translateY(0);
   }
 
-  /* transition-delayでずらしてグループ感を出す */
   .fade-in:nth-child(2) { transition-delay: 0.08s; }
   .fade-in:nth-child(3) { transition-delay: 0.16s; }
   .fade-in:nth-child(4) { transition-delay: 0.24s; }
 
   /* prefers-reduced-motion 対応 */
   @media (prefers-reduced-motion: reduce) {
-    .hero-mv-img { animation: none; }
+    .hero-content,
+    .hero-mv-img { animation: none; opacity: 1; }
     .goods-character-img,
     .profile-boundary-img,
     .contact-boundary-img,
@@ -1099,6 +1125,7 @@
       opacity: 1 !important;
       transform: none !important;
       transition: none !important;
+      animation: none !important;
     }
   }
 
@@ -1121,7 +1148,7 @@
 
   @media (max-width: 720px) {
     .hero {
-      max-height: 600px;
+      max-height: 630px;
       overflow: visible;
       z-index: 2;
     }
@@ -1226,12 +1253,12 @@
     <div class="hero-content">
       <!--サブ見出し <span class="hero-badge">Yamazaki Yasuyuki </span> -->
       <h1 class="hero-title">
-        <em>子どもとの時間</em>から<br>
-        生まれた絵本たち
+        <em>子どもとの暮らし</em>から<br>
+        生まれた絵本
       </h1>
       <p class="hero-sub">
-        子どもたちの「もう一回！」が聞きたくて、<br>
-        今日も夜な夜な筆を走らせています。
+        子どもの「もう一回！」が聞きたくて、<br>
+        今夜も筆を走らせています。
       </p>
       <div class="hero-btns">
         <a href="#books" class="btn-primary-hero"><img src="img/icon-books.svg" alt="" width="16" height="16" style="vertical-align:-2px; margin-right:5px;"> 絵本をみる</a>
@@ -1320,7 +1347,7 @@
       </p>
       <div class="profile-tags">
         <span class="tag"># デザイナー</span>
-        <span class="tag"># 絵本作家</span>
+        <span class="tag"># 暮らしから絵本を作る</span>
         <span class="tag"># 育児</span>
         <span class="tag"># こどもと絵本</span>
       </div>
@@ -1639,6 +1666,34 @@ function goToSlide(n) {
 function prevSlide() { goToSlide(currentSlide - 1); }
 function nextSlide() { goToSlide(currentSlide + 1); }
 
+// タッチフリック操作
+(function setupSliderTouch() {
+  let touchStartX = null;
+  let touchStartY = 0;
+  const SWIPE_THRESHOLD = 40; // フリックと判定する最低移動距離(px)
+
+  document.addEventListener('touchstart', e => {
+    const track = document.getElementById('sliderTrack');
+    if (!track || !track.contains(e.target)) return;
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  document.addEventListener('touchend', e => {
+    if (touchStartX === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    const dy = e.changedTouches[0].clientY - touchStartY;
+    touchStartX = null;
+    // 縦スクロールより横移動が大きい場合のみスワイプとみなす
+    if (Math.abs(dx) < SWIPE_THRESHOLD || Math.abs(dx) < Math.abs(dy)) return;
+    if (dx < 0) {
+      nextSlide();
+    } else {
+      prevSlide();
+    }
+  }, { passive: true });
+})();
+
 renderBooks();
 
 // ===== SCROLL ANIMATIONS =====
@@ -1663,8 +1718,14 @@ document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
 const charObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('is-visible');
-      charObserver.unobserve(entry.target);
+      const el = entry.target;
+      el.classList.add('is-visible');
+      charObserver.unobserve(el);
+
+      // transition完了（750ms）後にふわふわ開始
+      setTimeout(() => {
+        el.classList.add('is-floating');
+      }, 760);
     }
   });
 }, { threshold: 0.2, rootMargin: '0px 0px -20px 0px' });
