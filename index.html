@@ -211,7 +211,7 @@
     left: 8%;
     top: 50%;
     transform: translateY(-50%);
-    max-width: 520px;
+    max-width: 480px;
     z-index: 2;
   }
 
@@ -230,17 +230,14 @@
   }
 
   .hero-title {
-    font-size: clamp(2rem, 4.5vw, 3.2rem);
-    font-weight: 700;
-    line-height: 1.3;
-    color: white;
     margin-bottom: 1rem;
-    text-shadow: 0 2px 12px rgba(0,0,0,0.25);
   }
 
-  .hero-title em {
-    font-style: normal;
-    color: var(--yellow);
+  .hero-title img {
+    display: block;
+    width: 100%;
+    max-width: 480px;
+    height: auto;
   }
 
   .hero-sub {
@@ -1063,9 +1060,9 @@
 
   /* 依頼2：ふわふわ浮遊 */
   @keyframes float {
-    0%   { transform: translate(0,     0); }
-    50%  { transform: translate(0, -10px); }
-    100% { transform: translate(0,     0); }
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
   }
 
   /* 右配置：右からスライドイン（goods・contact） */
@@ -1093,18 +1090,17 @@
     transform: translateX(0);
   }
 
-  /* 依頼2：出現後にふわふわ（transitionをoffにしてanimationへ切り替え） */
+  /* 依頼2：出現後にふわふわ */
   .goods-character-img.is-floating,
   .profile-boundary-img.is-floating,
   .contact-boundary-img.is-floating {
     animation: float 3.5s ease-in-out infinite;
-    transition: none; /* transitionと競合しないよう無効化 */
   }
 
   /* 3つで位相をずらして同時にならないように */
   .goods-character-img.is-floating   { animation-delay:  0s;    }
-  .profile-boundary-img.is-floating  { animation-delay: -1.2s;  }
-  .contact-boundary-img.is-floating  { animation-delay: -2.4s;  }
+  .profile-boundary-img.is-floating  { animation-delay:  0s;    }
+  .contact-boundary-img.is-floating  { animation-delay:  0s;    }
 
   /* コンテンツ：スクロールフェードイン */
   .fade-in {
@@ -1145,7 +1141,7 @@
     right: 6%;
     top: 50%;
     transform: translateY(-42%); /* 下にはみ出す分だけ少し下げる */
-    width: 420px;
+    width: clamp(420px, calc(420px + (100vw - 1080px) * 0.3889), 560px);
   }
 
   @media (max-width: 960px) {
@@ -1154,22 +1150,35 @@
     }
   }
 
+  /* 880px以下：画像を縮小してhero-contentとの重なりを回避 */
+  @media (max-width: 880px) {
+    .hero-mv-img {
+      width: clamp(160px, 36vw, 320px);
+    }
+  }
+
   @media (max-width: 720px) {
     .hero {
-      max-height: 630px;
+      height: auto;
+      min-height: 0;
+      max-height: none;
       overflow: clip;
       z-index: 2;
     }
 
     /* SP: hero-innerをflexで縦並びに */
     .hero-inner {
+      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: flex-start;
       padding-top: 15%;
-      left: 0;
+      padding-bottom: 0;
+      left: auto;
       transform: none;
+      width: 100%;
+      inset: auto;
     }
 
     .hero-content {
@@ -1279,8 +1288,7 @@
     <div class="hero-content">
       <!--サブ見出し <span class="hero-badge">Yamazaki Yasuyuki </span> -->
       <h1 class="hero-title">
-        <em>子どもとの暮らし</em>から<br>
-        生まれた絵本
+        <img src="img/hero-title.png" alt="子どもとの暮らしから生まれた絵本">
       </h1>
       <p class="hero-sub">
         子どもの「もう一回！」が聞きたくて、<br>
@@ -1748,10 +1756,18 @@ const charObserver = new IntersectionObserver((entries) => {
       el.classList.add('is-visible');
       charObserver.unobserve(el);
 
-      // transition完了（750ms）後にふわふわ開始
-      setTimeout(() => {
-        el.classList.add('is-floating');
-      }, 760);
+      // transitionが完全に終わったタイミングでふわふわ開始（transformのtransition完了を待つ）
+      const onTransitionEnd = (e) => {
+        if (e.propertyName !== 'transform') return;
+        el.removeEventListener('transitionend', onTransitionEnd);
+        // 1フレーム待ってからアニメーション開始することでカクつきを防ぐ
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            el.classList.add('is-floating');
+          });
+        });
+      };
+      el.addEventListener('transitionend', onTransitionEnd);
     }
   });
 }, { threshold: 0.2, rootMargin: '0px 0px -20px 0px' });
