@@ -9,15 +9,15 @@
 <meta name="description" content="暮らしから絵本を作る やまざき やすゆきのWebサイト。既刊絵本の紹介、グッズ情報、プロフィールなどを掲載しています。">
 <meta name="keywords" content="やまざき やすゆき, 絵本作家, 絵本, 児童書, デザイナー, イラスト, 育児">
 <meta name="author" content="やまざき やすゆき">
-<link rel="canonical" href="https://yamazaki_ehon.me/">
+<link rel="canonical" href="https://yamazaki-yasuyuki.com/">
 
 <!-- OGP -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="やまざき やすゆき | 暮らしから絵本を作る">
 <meta property="og:title" content="やまざき やすゆき | 暮らしから絵本を作る">
 <meta property="og:description" content="暮らしから絵本を作る やまざき やすゆきのWebサイト。既刊絵本の紹介、グッズ情報、プロフィールなどを掲載しています。">
-<meta property="og:url" content="https://yamazaki_ehon.me/">
-<meta property="og:image" content="https://yamazaki_ehon.me/img/ogp.jpg">
+<meta property="og:url" content="https://yamazaki-yasuyuki.com/">
+<meta property="og:image" content="https://yamazaki-yasuyuki.com/img/ogp.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="ja_JP">
@@ -27,7 +27,7 @@
 <!-- <meta name="twitter:site" content="@ShamojiCase"> -->
 <meta name="twitter:title" content="やまざき やすゆき | 暮らしから絵本を作る">
 <meta name="twitter:description" content="暮らしから絵本を作る やまざき やすゆきのWebサイト。既刊絵本の紹介・試し読み・購入リンク、グッズ情報、プロフィールなどを掲載しています。">
-<meta name="twitter:image" content="https://yamazaki_ehon.me/img/ogp.jpg">
+<meta name="twitter:image" content="https://yamazaki-yasuyuki.com/img/ogp.jpg">
 
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -180,6 +180,7 @@
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
+    z-index: 4;
   }
 
   .hero-bg {
@@ -337,6 +338,19 @@
   .section-header {
     text-align: center;
     margin-bottom: 3rem;
+  }
+
+  /* 見出し直下の丸ドット破線 */
+  .section-header::after {
+    content: '';
+    display: block;
+    margin: 0.55rem auto 0;
+    width: 64px;
+    height: 6px;
+    background-image: radial-gradient(circle, var(--yellow) 2.5px, transparent 2.5px);
+    background-size: 10px 6px;
+    background-repeat: repeat-x;
+    background-position: center;
   }
 
   .section-headline-img {
@@ -1136,7 +1150,7 @@
   /* ===== /ANIMATIONS ===== */
   .hero-mv-img {
     position: absolute;
-    z-index: 2;
+    z-index: 4;
     pointer-events: none;
     right: 6%;
     top: 50%;
