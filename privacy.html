@@ -97,10 +97,25 @@
   .page-hero {
     position: relative;
     margin-top: 60px;
-    background: url('img/hero.jpg') center/cover no-repeat;
     padding: 3.5rem 2rem 5rem;
     text-align: center;
     overflow: hidden;
+  }
+
+  .page-hero-bg {
+    position: absolute;
+    inset: 0;
+    background: url('img/hero.jpg') center/cover no-repeat;
+    background-size: cover;
+    z-index: 0;
+  }
+
+  .page-hero-en,
+  .page-hero-title,
+  .page-hero-date,
+  .page-hero-wave {
+    position: relative;
+    z-index: 1;
   }
 
   .page-hero-en {
@@ -269,25 +284,42 @@
   /* ===== FOOTER ===== */
   footer {
     position: relative;
-    background: url('img/footer.jpg') center/cover no-repeat;
     color: rgba(255,255,255,0.85);
     text-align: center;
-    padding: 2rem;
     font-size: 0.8rem;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .footer-bg {
+    position: absolute;
+    inset: 0;
+    background: url('img/footer.jpg') center top / 100% auto repeat-y;
+    background-size: cover;
+    z-index: 0;
   }
 
   .footer-wave {
-    position: absolute;
-    top: -2px;
-    left: 0;
-    width: 100%;
+    position: relative;
+    z-index: 1;
     line-height: 0;
+    margin-top: 0;
+    margin-bottom: auto;
+    width: 100%;
   }
 
   .footer-wave svg {
     display: block;
     width: 100%;
     height: 62px;
+  }
+
+  .footer-content {
+    position: relative;
+    z-index: 1;
+    padding: 2rem 2rem 2.5rem;
   }
 
   footer a { color: var(--yellow); text-decoration: none; }
@@ -316,6 +348,7 @@
 
 <!-- PAGE HERO -->
 <div class="page-hero">
+  <div class="page-hero-bg" id="pageHeroBg"></div>
   <h1 class="page-hero-title">プライバシーポリシー</h1>
   <div class="page-hero-en">Privacy Policy</div>
   <p class="page-hero-date">制定日：2026年6月1日　／　最終更新日：2026年6月1日</p>
@@ -446,14 +479,53 @@
 </div><!-- /.content-wrap -->
 
 <footer>
+  <div class="footer-bg" id="footerBg"></div>
   <div class="footer-wave">
     <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M0,30 C180,0 360,60 540,30 C720,0 900,50 1080,25 C1260,2 1380,45 1440,30 L1440,0 L0,0 Z" fill="#FFFFFF"/>
     </svg>
   </div>
-  <p style="padding-top:2.5rem;">© 2026 やまざき やすゆき All Rights Reserved.</p>
-  <p style="margin-top:0.4rem;"><a href="privacy.html">プライバシーポリシー</a></p>
+  <div class="footer-content">
+    <p>© 2026 やまざき やすゆき All Rights Reserved.</p>
+    <p style="margin-top:0.4rem;"><a href="privacy.html">プライバシーポリシー</a></p>
+  </div>
 </footer>
+
+<script>
+// ===== Page Hero & Footer parallax =====
+(function () {
+  const pageHeroBg = document.getElementById('pageHeroBg');
+  const footer     = document.querySelector('footer');
+  const footerBg   = document.getElementById('footerBg');
+  const SPEED = 0.35;
+  let ticking = false;
+
+  function updateParallax() {
+    const scrollY = window.scrollY;
+
+    if (pageHeroBg) {
+      const offset = scrollY * SPEED;
+      pageHeroBg.style.backgroundPosition = `center calc(50% + ${offset}px)`;
+      pageHeroBg.style.backgroundSize = 'cover';
+    }
+
+    if (footer && footerBg) {
+      const footerOffset = (scrollY - footer.offsetTop) * SPEED;
+      footerBg.style.backgroundPosition = `center calc(50% + ${footerOffset}px)`;
+      footerBg.style.backgroundSize = 'cover';
+    }
+
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  }, { passive: true });
+})();
+</script>
 
 </body>
 </html>
