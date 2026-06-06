@@ -1106,7 +1106,7 @@
     position: relative;
     z-index: 1;
     line-height: 0;
-    margin-top: 0;
+    margin-top: -2px; /* サブピクセル隙間を潰す */
     margin-bottom: auto;
     width: 100%;
   }
@@ -1352,7 +1352,7 @@
       margin-bottom: 1.2rem;
     }
 
-    .profile-inner { flex-direction: column; gap: 1.5rem; }
+    .profile-inner { flex-direction: column; gap: 0.8rem; }
 
     .profile-character {
       width: 100%;
@@ -1498,7 +1498,7 @@
       <!-- SP版のみ表示（profile-characterの下） -->
       <div class="profile-bubble profile-bubble--sp">
         はじめまして！富山県立山町で絵本を描いている やまざき やすゆき です。<br>
-        娘の子育てをきっかけに絵本を描き始め、普段のちょっとした出来事や、娘の興味を種に、「暮らしの中から生まれる楽しさ」をテーマに絵本を作っています。<br>
+        娘の子育てをきっかけに絵本を描き始め、普段のちょっとした出来事や、娘の興味を種に、"暮らしの中から生まれる楽しさ"を大切にしながら絵本を作っています。<br>
         本業と子育ての“混沌”の合間に、夜な夜な描いているので制作は毎日少しずつ…ですが、なるべく娘や今の子供たち早く絵本を届けられるよう、日々楽しく七転八倒しながらペンを走らせています。
       </div>
     </div>
@@ -1506,7 +1506,7 @@
       <!-- PC版のみ表示（profile-contentの上） -->
       <div class="profile-bubble profile-bubble--pc">
         はじめまして！富山県立山町で絵本を描いている やまざき やすゆき です。<br>
-        娘の子育てをきっかけに絵本を描き始め、普段のちょっとした出来事や、娘の興味を種に、「暮らしの中から生まれる楽しさ」をテーマに絵本を作っています。<br>
+        娘の子育てをきっかけに絵本を描き始め、普段のちょっとした出来事や、娘の興味を種に、"暮らしの中から生まれる楽しさ"を大切にしながら絵本を作っています。<br>
         本業と子育ての“混沌”の合間に、夜な夜な描いているので制作は毎日少しずつ…ですが、なるべく娘や今の子供たち早く絵本を届けられるよう、日々楽しく七転八倒しながらペンを走らせています。
       </div>
       <p class="profile-text">
@@ -1575,8 +1575,8 @@
 <footer>
   <div class="footer-bg" id="footerBg"></div>
   <div class="footer-wave">
-    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,30 C180,0 360,60 540,30 C720,0 900,50 1080,25 C1260,2 1380,45 1440,30 L1440,0 L0,0 Z" fill="var(--yellow-light)"/>
+    <svg viewBox="0 -2 1440 62" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,30 C180,0 360,60 540,30 C720,0 900,50 1080,25 C1260,2 1380,45 1440,30 L1440,-2 L0,-2 Z" fill="var(--yellow-light)"/>
     </svg>
   </div>
   <div class="footer-content">
