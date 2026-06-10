@@ -919,7 +919,7 @@
     height: 310px;
     border-radius: 20px;
     overflow: hidden;
-    margin-bottom: -36px;
+    margin-bottom: 1rem;
   }
 
   .profile-bubble {
@@ -932,7 +932,7 @@
     line-height: 2;
     color: var(--gray-800);
     text-align: left;
-    margin-top: 3.5rem;
+    margin-top: 1rem;
     position: relative;
   }
 
@@ -1000,6 +1000,83 @@
     line-height: 2;
     color: var(--gray-600);
     margin-bottom: 0.8rem;
+  }
+
+  /* プロフィール本文前の弱い見出し */
+  .profile-section-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--gray-400);
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+    margin-top: 0.25rem;
+  }
+
+  /* 実績セクション */
+  .profile-achievements {
+    margin-top: 1.6rem;
+    padding-top: 1.4rem;
+    border-top: 1px dashed var(--gray-300, #DDDDDD);
+  }
+
+  .profile-achievements-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--gray-400);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .achievement-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .achievement-item {
+    display: grid;
+    grid-template-columns: 3.8rem 1fr;
+    gap: 0.6rem;
+    align-items: baseline;
+    font-size: 0.8rem;
+    line-height: 1.75;
+  }
+
+  .achievement-year {
+    color: var(--gray-400);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    padding-top: 0.05em;
+    white-space: nowrap;
+  }
+
+  .achievement-name {
+    color: var(--gray-600);
+  }
+
+  /* テキストリンク（実績内） */
+  .achievement-link {
+    color: var(--accent);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    transition: color 0.2s;
+  }
+
+  .achievement-link:hover {
+    color: var(--accent-dark);
+    text-decoration: underline;
+  }
+
+  .achievement-link-icon {
+    flex-shrink: 0;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 1px;
   }
 
   .profile-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1.2rem; }
@@ -1509,14 +1586,84 @@
         娘の子育てをきっかけに絵本を描き始め、普段のちょっとした出来事や、娘の興味を種に、"暮らしの中から生まれる楽しさ"を大切にしながら絵本を作っています。<br>
         本業と子育ての“混沌”の合間に、夜な夜な描いているので制作は毎日少しずつ…ですが、なるべく娘や今の子供たち早く絵本を届けられるよう、日々楽しく七転八倒しながらペンを走らせています。
       </div>
+      <p class="profile-section-label">プロフィール</p>
       <p class="profile-text">
         デザイナー。1985年、新潟県生まれ。長岡造形大学大学院修士課程を修了後、
         ヨガスタジオ、広告代理店、制作会社等で勤務し、2019年に東京都から富山県へ移住。
-        立山連峰を臨む自然のなかで、娘の子育てをしながら、絵本を制作。<br>
+        立山連峰を臨む自然のなかで、娘の子育てをしながら、絵本を制作。
       </p>
-      <p class="profile-text">
-        過去の実績として、自作の人形劇を用いた書籍CMの制作や、自主制作映像で賞を受賞。
-      </p>
+
+      <!-- 実績一覧 -->
+      <div class="profile-achievements">
+        <p class="profile-achievements-label">実績</p>
+        <div class="achievement-list">
+          <div class="achievement-item">
+            <span class="achievement-year">2026年</span>
+            <span class="achievement-name">
+              絵本『へんしんスライム』出版
+            </span>
+          </div>
+          <div class="achievement-item">
+            <span class="achievement-year">2025年</span>
+            <span class="achievement-name">
+              絵本『エスカレーターにのるときは』出版
+            </span>
+          </div>
+          <div class="achievement-item">
+            <span class="achievement-year">2021年</span>
+            <span class="achievement-name">
+              人材系上場企業 C社 メディア用マスコットキャラクターデザイン
+            </span>
+          </div>
+          <div class="achievement-item">
+            <span class="achievement-year">2018年</span>
+            <span class="achievement-name">
+               Creepy Nuts ミュージックビデオ『<a href="https://www.youtube.com/watch?v=TucoE8VLYBA" target="_blank" rel="noopener" class="achievement-link"> ぬえの鳴く夜は<img src="img/icon-external.svg" class="achievement-link-icon" width="11" height="11" alt="" aria-hidden="true"></a>』出演（試作鵺五号）<br>
+            </span>
+          </div>
+          <div class="achievement-item">
+            <span class="achievement-year">2017年</span>
+            <span class="achievement-name">
+              キッズ向けYouTubeメディア 番組運営・脚本・演出・出演
+            </span>
+          </div>
+          <div class="achievement-item">
+            <span class="achievement-year">2015年</span>
+            <span class="achievement-name">
+              しかけ映像『<a href="https://www.youtube.com/watch?v=yl8r0vu8pNk" target="_blank" rel="noopener" class="achievement-link">高須クリニックCM再現<img src="img/icon-external.svg" class="achievement-link-icon" width="11" height="11" alt="" aria-hidden="true"></a>』制作<br>
+              高須クリニックYes!動画コンテスト「マックスむらい賞」受賞<br>
+              Webメディア『女子SPA!』内記事にて作品掲載
+            </span>
+          </div>
+          <div class="achievement-item">
+            <span class="achievement-year">2015年</span>
+            <span class="achievement-name">
+              Eテレ『テクネ-映像の教室-』 テクネIDアワード Judge'sPick入選<br>
+               『<a href="https://www.youtube.com/watch?v=jP1LmUCMtnc" target="_blank" rel="noopener" class="achievement-link">サイコロテクネ<img src="img/icon-external.svg" class="achievement-link-icon" width="11" height="11" alt="" aria-hidden="true"></a>』
+            </span>
+          </div>
+          <div class="achievement-item">
+            <span class="achievement-year">2014年</span>
+            <span class="achievement-name">
+              小説『秘密警察 FILE:02 -Confidential-』（PHP研究所）<br>
+              <a href="https://www.youtube.com/watch?v=3cGoK-K0pBQ" target="_blank" rel="noopener" class="achievement-link">人形劇によるプロモ映像制作<img src="img/icon-external.svg" class="achievement-link-icon" width="11" height="11" alt="" aria-hidden="true"></a>
+            </span>
+          </div>
+          <div class="achievement-item">
+            <span class="achievement-year">2013年</span>
+            <span class="achievement-name">
+              人形劇ミュージックビデオ『 <a href="https://www.nicovideo.jp/watch/sm20637845" target="_blank" rel="noopener" class="achievement-link">お願い☆アンゴルモア<img src="img/icon-external.svg" class="achievement-link-icon" width="11" height="11" alt="" aria-hidden="true"></a>』制作<br>
+              ひかりTV放送『ミクミクメイクミク！』内で紹介
+            </span>
+          </div>
+          <div class="achievement-item">
+            <span class="achievement-year">2012年</span>
+            <span class="achievement-name">
+              東証一部（現東証プライム）上場企業 N社 企業キャラクターデザイン
+            </span>
+          </div>
+        </div>
+      </div>
       <div class="profile-tags">
         <span class="tag"># デザイナー</span>
         <span class="tag"># 暮らしから絵本を作る</span>
