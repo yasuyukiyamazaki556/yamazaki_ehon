@@ -384,6 +384,14 @@
     z-index: 1;
   }
 
+  /* SP: hero-waveとbooksの境界にサブピクセルの隙間線が出るのを防ぐため、
+     わずかに重ねて隙間を潰す（hero-waveの塗りもbooksもwhiteなので重なりは見た目に影響なし） */
+  @media (max-width: 720px) {
+    #books {
+      margin-top: -2px;
+    }
+  }
+
   /* ===== PC版のグリッド repeat内の左値 ===== */
   .books-grid {
     display: grid;
@@ -728,6 +736,7 @@
   /* books/goods境界をまたぐキャラクターエリア */
   .goods-character-wrap {
     position: relative;
+    z-index: 2;
     background: linear-gradient(to bottom, var(--white) 50%, var(--mint-light) 50%);
     padding: 0 4rem;
   }
@@ -746,6 +755,7 @@
     height: auto;
     right: 0;
     bottom: 0;
+    z-index: 10;
   }
 
   /* SP */
@@ -761,6 +771,7 @@
   /* goods/profile境界キャラクター（左配置） */
   .profile-character-wrap {
     position: relative;
+    z-index: 2;
     background: linear-gradient(to bottom, var(--mint-light) 50%, var(--white) 50%);
     padding: 0 4rem;
   }
@@ -784,6 +795,7 @@
   /* profile/contact境界キャラクター（右配置） */
   .contact-character-wrap {
     position: relative;
+    z-index: 2;
     background: linear-gradient(to bottom, var(--white) 50%, var(--yellow-light) 50%);
     padding: 0 4rem;
   }
@@ -1222,7 +1234,7 @@
 
   /* スライドイン：translate(0,0) で終わり、heroFloat の 0% と一致させてカクつき防止 */
   @keyframes heroCharIn {
-    from { opacity: 0; transform: translateY(-42%) translate(-30px, 30px); }
+    from { opacity: 0; transform: translateY(-42%) translate(-120px, 120px); }
     to   { opacity: 1; transform: translateY(-42%) translate(0, 0); }
   }
 
@@ -1240,7 +1252,7 @@
                  heroFloatSP  3.5s ease-in-out 1.4s infinite;
     }
     @keyframes heroCharInSP {
-      from { opacity: 0; transform: translate(-20px, 20px); }
+      from { opacity: 0; transform: translate(-120px, 120px); }
       to   { opacity: 1; transform: translate(0, 0); }
     }
     @keyframes heroFloatSP {
@@ -1257,42 +1269,25 @@
     100% { transform: translateY(0); }
   }
 
-  /* 右配置：右からスライドイン（goods・contact） */
+  /* 左右スライドインは廃止。常時ふわふわ浮遊のみ（パララックスはJSでinner側に付与） */
   .goods-character-img,
+  .profile-boundary-img,
   .contact-boundary-img {
-    opacity: 0;
-    transform: translateX(80px);
-    transition: opacity 0.75s cubic-bezier(0.22, 0.61, 0.36, 1),
-                transform 0.75s cubic-bezier(0.22, 0.61, 0.36, 1);
-  }
-
-  /* 左配置：左からスライドイン（profile） */
-  .profile-boundary-img {
-    opacity: 0;
-    transform: translateX(-80px);
-    transition: opacity 0.75s cubic-bezier(0.22, 0.61, 0.36, 1),
-                transform 0.75s cubic-bezier(0.22, 0.61, 0.36, 1);
-  }
-
-  /* 出現完了 */
-  .goods-character-img.is-visible,
-  .profile-boundary-img.is-visible,
-  .contact-boundary-img.is-visible {
     opacity: 1;
-    transform: translateX(0);
-  }
-
-  /* 依頼2：出現後にふわふわ */
-  .goods-character-img.is-floating,
-  .profile-boundary-img.is-floating,
-  .contact-boundary-img.is-floating {
     animation: float 2.4s ease-in-out infinite;
   }
 
   /* 3つで位相をずらして同時にならないように */
-  .goods-character-img.is-floating   { animation-delay:  0s;    }
-  .profile-boundary-img.is-floating  { animation-delay:  0s;    }
-  .contact-boundary-img.is-floating  { animation-delay:  0s;    }
+  .goods-character-img   { animation-delay: 0s; }
+  .profile-boundary-img  { animation-delay: 0s; }
+  .contact-boundary-img  { animation-delay: 0s; }
+
+  /* パララックス対象（JSがtransformを付与）。will-changeで滑らかに */
+  .goods-character-inner,
+  .profile-character-inner,
+  .contact-character-inner {
+    will-change: transform;
+  }
 
   /* コンテンツ：スクロールフェードイン */
   .fade-in {
@@ -1322,6 +1317,11 @@
       transform: none !important;
       transition: none !important;
       animation: none !important;
+    }
+    .goods-character-inner,
+    .profile-character-inner,
+    .contact-character-inner {
+      transform: none !important;
     }
   }
 
@@ -1354,7 +1354,7 @@
       height: auto;
       min-height: 0;
       max-height: none;
-      overflow: clip;
+      overflow: visible;
       z-index: 2;
     }
 
@@ -1995,32 +1995,71 @@ const fadeObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
 
-// #2 境界キャラクター（少し早めに出現）
-const charObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const el = entry.target;
-      el.classList.add('is-visible');
-      charObserver.unobserve(el);
+// #2 境界キャラクター（左右スライドインは廃止。常時ふわふわ＋パララックスのみ）
+// ふわふわ（float）はCSS側で常時再生。ここではスクロール量より大きく動くパララックスだけを付与する。
+(function () {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) return;
 
-      // transitionが完全に終わったタイミングでふわふわ開始（transformのtransition完了を待つ）
-      const onTransitionEnd = (e) => {
-        if (e.propertyName !== 'transform') return;
-        el.removeEventListener('transitionend', onTransitionEnd);
-        // 1フレーム待ってからアニメーション開始することでカクつきを防ぐ
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            el.classList.add('is-floating');
-          });
-        });
-      };
-      el.addEventListener('transitionend', onTransitionEnd);
+  const charParallaxEls = document.querySelectorAll(
+    '.goods-character-inner, .profile-character-inner, .contact-character-inner'
+  );
+  if (!charParallaxEls.length) return;
+
+  const CHAR_PARALLAX_SPEED = 0.35;  // 実質的な移動量は「通常スクロール量 × (1 + この値)」
+  const CHAR_PARALLAX_MAX   = 600;   // 移動量の上限(px)。大きくズレたり消えたりするのを防ぐ
+
+  // 画面付近にある要素だけを計算対象にする（遠く離れた要素の差分が際限なく
+  // 大きくなり、フッター下に余分な空白ができたり位置がズレたりするのを防止）
+  const activeEls = new Set();
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        activeEls.add(entry.target);
+      } else {
+        activeEls.delete(entry.target);
+        // 画面外に出たら位置をリセットし、ページ全体のスクロール範囲に影響を与えないようにする
+        entry.target.style.transform = 'translateY(0px)';
+      }
+    });
+    requestCharParallaxUpdate();
+  }, { rootMargin: '400px 0px 400px 0px' });
+
+  charParallaxEls.forEach(el => io.observe(el));
+
+  let charTicking = false;
+
+  function updateCharParallax() {
+    const viewportCenter = window.innerHeight / 2;
+
+    activeEls.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      const elCenter = rect.top + rect.height / 2;
+      const diff = viewportCenter - elCenter;
+      // 符号を反転させることで、通常のスクロール量よりも大きく動くようにする（上限あり）
+      const offset = Math.max(
+        -CHAR_PARALLAX_MAX,
+        Math.min(CHAR_PARALLAX_MAX, -diff * CHAR_PARALLAX_SPEED)
+      );
+      el.style.transform = `translateY(${offset}px)`;
+    });
+
+    charTicking = false;
+  }
+
+  function requestCharParallaxUpdate() {
+    if (!charTicking) {
+      requestAnimationFrame(updateCharParallax);
+      charTicking = true;
     }
-  });
-}, { threshold: 0.2, rootMargin: '0px 0px -20px 0px' });
+  }
 
-document.querySelectorAll('.goods-character-img, .profile-boundary-img, .contact-boundary-img')
-  .forEach(el => charObserver.observe(el));
+  window.addEventListener('scroll', requestCharParallaxUpdate, { passive: true });
+  window.addEventListener('resize', requestCharParallaxUpdate);
+
+  requestCharParallaxUpdate();
+})();
 </script>
 </body>
 </html>
