@@ -2006,7 +2006,7 @@ document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
   );
   if (!charParallaxEls.length) return;
 
-  const CHAR_PARALLAX_SPEED = 0.35;  // 実質的な移動量は「通常スクロール量 × (1 + この値)」
+  const CHAR_PARALLAX_SPEED = 0.2;  // 実質的な移動量は「通常スクロール量 × (1 + この値)」
   const CHAR_PARALLAX_MAX   = 600;   // 移動量の上限(px)。大きくズレたり消えたりするのを防ぐ
 
   // 画面付近にある要素だけを計算対象にする（遠く離れた要素の差分が際限なく
