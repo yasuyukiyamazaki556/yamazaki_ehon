@@ -662,6 +662,13 @@
     border: 1px solid var(--gray-200);
   }
 
+  .book-images-note {
+    font-size: 0.8rem;
+    color: var(--gray-400);
+    margin-top: 0.6rem;
+    line-height: 1.6;
+  }
+
   /* Buy */
   .buy-label {
     font-size: 0.92rem;
@@ -1623,6 +1630,12 @@
           <div class="achievement-item">
             <span class="achievement-year">2026年</span>
             <span class="achievement-name">
+              絵本『いちごちゃんがトン』出版
+            </span>
+          </div>
+          <div class="achievement-item">
+            <span class="achievement-year">2026年</span>
+            <span class="achievement-name">
               絵本『へんしんスライム』出版
             </span>
           </div>
@@ -1757,6 +1770,7 @@
       <div>
         <div class="slider-label"><img src="img/icon-books.svg" alt="" width="20" height="20" style="vertical-align:-4px; margin-right:4px;"> 書籍イメージ</div>
         <div class="book-images-stack" id="bookImagesStack"></div>
+        <p class="book-images-note">※書籍画像は仕上がりイメージです。実際の書籍とは見え方が異なる場合があります。</p>
       </div>
     </div>
   </div>
@@ -1767,32 +1781,36 @@
 const books = [
   {
     id: 3,
-    title: "【制作中】いちごちゃんがトン",
-    year: "2026年発売予定",
-    badge: "🚧鋭意制作中",
-    thumb: "img/book03-thumb-80.jpg",
-    desc: "いちご✕擬音！みんな大好物のいちごちゃんが、楽しい音の冒険をする繰り返し絵本です。現在制作中。",
+    title: "いちごちゃんがトン",
+    year: "2026年8月",
+    badge: "最新作",
+    thumb: "img/book03-thumb-80.jpg?V=2",
+    desc: "いちご✕擬音！トン、トトン、トントン…ドーン！ページをめくるたび、どんどん音が大きくなって…？みんな大好物のいちごが、楽しい音の冒険をする繰り返し絵本です。ドアのノックから太鼓、忍術、花火、ブルドーザーまで様々な擬音が飛び出します。親子で声に出してお楽しみください。",
     slides: [
-      "img/book03-01-80.jpg",
-      "img/book03-02-80.jpg",
-      "img/book03-03-80.jpg",
-      "img/book03-04-80.jpg",
-      "img/book03-05-80.jpg",
-      "img/book03-06-80.jpg",
-      "img/book03-07-80.jpg",
-      "img/book03-08-80.jpg",
+      "img/book03-01-80.jpg?V=2",
+      "img/book03-02-80.jpg?V=2",
+      "img/book03-03-80.jpg?V=2",
+      "img/book03-04-80.jpg?V=2",
+      "img/book03-05-80.jpg?V=2",
+      "img/book03-06-80.jpg?V=2",
+      "img/book03-07-80.jpg?V=2",
+      "img/book03-08-80.jpg?V=2",
+      "img/book03-09-80.jpg?V=2",
+      "img/book03-10-80.jpg?V=2",
+      "img/book03-11-80.jpg?V=2",
+      "img/book03-12-80.jpg?V=2",
     ],
     buyLinks: {
-      print:   [],
+      print:   [{ label: "Amazon（紙の本）", url: "https://amzn.to/4qLBCTZ", type: "amazon" }],
       digital: []
     }
   },  
   {
     id: 2,
     title: "へんしんスライム",
-    year: "2026年",
-    badge: "最新作",
-    thumb: "img/book02-thumb-80.jpg",
+    year: "2026年3月",
+    badge: null,
+    thumb: "img/book02-thumb-80.jpg?V=2",
     desc: "３歳娘が飛び跳ねて喜ぶ！スライムがぷにぷにと次々変身していく繰り返し絵本",
     slides: [
       "img/book02-01-80.jpg",
@@ -1816,7 +1834,7 @@ const books = [
   {
     id: 1,
     title: "エスカレーターにのるときは",
-    year: "2025年",
+    year: "2025年2月",
     badge: null,
     thumb: "img/book01-thumb-80.jpg",
     desc: "小さな子供にエスカレーターの安全な乗り方をパッと絵で伝える教育絵本",
